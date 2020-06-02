@@ -1,0 +1,17 @@
+{
+	"folders": [
+		{
+			"path": "../complex"
+		},
+		{
+			"path": "../frontend"
+		},
+		{
+			"path": "../simplek8s"
+		},
+		{
+			"path": "."
+		}
+	],
+	"settings": {}
+}
