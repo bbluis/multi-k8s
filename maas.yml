@@ -5,7 +5,7 @@ write_files:
       core.trust_password: password
     networks:
     - config:
-        ipv4.address: 10.10.10.1/24
+        ipv4.address: 10.40.0.1/24
         ipv6.address: none
       description: ""
       name: lxdbr0
@@ -71,8 +71,8 @@ runcmd:
 - export FABRIC_ID=$(maas admin subnet read "$SUBNET" | jq -r ".vlan.fabric_id")
 - export VLAN_TAG=$(maas admin subnet read "$SUBNET" | jq -r ".vlan.vid")
 - export PRIMARY_RACK=$(maas admin rack-controllers read | jq -r ".[] | .system_id")
-- maas admin subnet update $SUBNET gateway_ip=10.10.10.1
-- maas admin ipranges create type=dynamic start_ip=10.10.10.200 end_ip=10.10.10.254
+- maas admin subnet update $SUBNET gateway_ip=10.40.0.1
+- maas admin ipranges create type=dynamic start_ip=10.40.0.200 end_ip=10.40.0.254
 - maas admin vlan update $FABRIC_ID $VLAN_TAG dhcp_on=True primary_rack=$PRIMARY_RACK
 - maas admin maas set-config name=upstream_dns value=8.8.8.8
 # Add LXD as a VM host for MAAS
